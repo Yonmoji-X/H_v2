@@ -64,7 +64,7 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
         <?php foreach ($values as $v) { ?>
         <tr>
           <td><?= h($v["id"]) ?></td>
-          <td><a href="detail.php?id=<?= h($v["id"]) ?>"><?= h($v["name"]) ?></a></td>
+          <td><a href="member_view.php?id=<?= h($v["id"]) ?>"><?= h($v["name"]) ?></a></td>
           <?php if ($_SESSION["kanri_flg"] == "1") { ?>
           <td>
             <a href="member_delete.php?id=<?= h($v["id"]) ?>">[削除]</a>
