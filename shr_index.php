@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("funcs.php");
-
+// check_gene_id.php
 // LOGINチェック
 sschk();
 
@@ -59,14 +59,14 @@ $json_shr = json_encode($values_shr, JSON_UNESCAPED_UNICODE);
     <!-- Head[End] -->
 
     <!-- Main[Start] -->
-    <form method="POST" action="shr_insert.php">
+    <form id="registration-form" method="POST" action="shr_insert.php">
         <div class="jumbotron">
             <fieldset>
-                <legend>従業員登録</legend>
+                <legend>一般アカウント登録</legend>
                 <!-- 隠しフィールドにユーザーIDを追加 -->
                 <input type="hidden" name="auth_id" value="<?= $auth_id ?>">
                 <!-- 従業員アカウントID -->
-                <label>従業員アカウントID：
+                <label>一般アカウントID：
                     <input type="text" id="gene_id">
                 </label><br>
                 <!-- 隠しフィールドに従業員IDを追加 -->
@@ -75,7 +75,15 @@ $json_shr = json_encode($values_shr, JSON_UNESCAPED_UNICODE);
             </fieldset>
         </div>
     </form>
-    <div id="index_share"></div>
+    <table id="table_body">
+        <thead>
+            <tr>
+                <th>名前</th>
+                <th>アカウントID</th>
+                <th>削除</th>
+            </tr>
+        <thead>
+    </table>
     <!-- Main[End] -->
 
     <!-- JSONデータをJavaScriptで利用 -->
@@ -86,20 +94,52 @@ $json_shr = json_encode($values_shr, JSON_UNESCAPED_UNICODE);
         console.log(userTableData);
         console.log(shareTableData);
 
-        // index_shareにデータを表示
-        const indexShare = document.getElementById('index_share');
-        for (let i = 0; i < shareTableData.length; i++) {
-            targetId = shareTableData[i].gene_id;
-            let matchedRecord_user = userTableData.find(record => record.id === targetId);
+        const tableBody = document.getElementById('table_body');
+        shareTableData.forEach(v => {
+            let matchedRecord_user = userTableData.find(record =>
+            record.id === v.gene_id);
             if (matchedRecord_user) {
-                console.log("Found record:", matchedRecord_user);
-                const contentShare = document.createElement('p');
-                contentShare.textContent = matchedRecord_user.name; // textContent を使用
-                indexShare.appendChild(contentShare);
-            } else {
-                console.log("No record found with id:", targetId);
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                <td>${matchedRecord_user.name}</td>
+                <td>${matchedRecord_user.lid}</td>
+                <td><a href="shr_delete.php?id=${v.id}">削除</a></td>
+                `;
+                tableBody.appendChild(tr);
             }
-        }
+        })
+        // index_shareにデータを表示
+        // const indexShare = document.getElementById('index_share');
+        // for (let i = 0; i < shareTableData.length; i++) {
+        //     let targetId = shareTableData[i].gene_id;
+        //     let matchedRecord_user = userTableData.find(record => record.id === targetId);
+        //     if (matchedRecord_user) {
+        //         console.log("Found record:", matchedRecord_user);
+        //         const contentShare_div = document.createElement('div');
+        //         contentShare_div.innerHTML =`
+        //         <p>${matchedRecord_user.name}</p>
+
+        //         <a href="rcrd_delete.php?id=${targetId}>削除</a>
+        //         `;
+        //         indexShare.appendChild(contentShare_div);
+        //     } else {
+        //         console.log("No record found with id:", targetId);
+        //     }
+        // }
+
+        // const indexShare = document.getElementById('index_share');
+        // for (let i = 0; i < shareTableData.length; i++) {
+        //     let targetId = shareTableData[i].gene_id;
+        //     let matchedRecord_user = userTableData.find(record => record.id === targetId);
+        //     if (matchedRecord_user) {
+        //         console.log("Found record:", matchedRecord_user);
+        //         const contentShare = document.createElement('p');
+        //         contentShare.textContent = matchedRecord_user.name; // textContent を使用
+        //         indexShare.appendChild(contentShare);
+        //     } else {
+        //         console.log("No record found with id:", targetId);
+        //     }
+        // }
 
         document.addEventListener('DOMContentLoaded', function() {
             let geneIdInput = document.getElementById('gene_id');
@@ -121,6 +161,35 @@ $json_shr = json_encode($values_shr, JSON_UNESCAPED_UNICODE);
                     hiddenGeneId.value = '';
                 }
             });
+        });
+    </script>
+
+    <script>
+        // フォーム送信前にチェックを行う
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+            let geneId = document.getElementById('hidden_gene_id').value;
+
+            // `gene_id` が存在するかどうかをサーバーに問い合わせる
+            fetch('shr_check_gene_id.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'gene_id': geneId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.exists) {
+                    alert('このIDはすでに登録されています。');
+                } else {
+                    document.getElementById('registration-form').submit(); // 存在しない場合はフォームを送信
+                }
+            })
+            .catch(error => console.error('Error:', error));
         });
     </script>
 
