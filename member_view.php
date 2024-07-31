@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $id = $_GET["id"]; //?id~**を受け取る
 include("funcs.php");
 sschk();
@@ -32,7 +33,7 @@ if($status==false) {
 
 <!-- Head[Start] -->
 <header>
-<?= include("menu.php");?>
+<?php include("menu.php");?>
   <!-- <nav class="navbar navbar-default">
     <div class="container-fluid">
     <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
@@ -44,7 +45,7 @@ if($status==false) {
 
 <!-- Main[Start] -->
 <!-- <form method="POST" action="member_update.php"> -->
-  <div class="jumbotron">
+  <div class="main">
     <legend>[詳細]</legend>
      <p>名前：<?=$row["name"]?></p>
      <p>メール：<?=$row["email"]?></p>

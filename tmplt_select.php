@@ -3,8 +3,8 @@
 session_start();
 
 // 1. 関数群の読み込み
-include("funcs.php");
 
+include("funcs.php");
 // LOGINチェック → funcs.phpへ関数化しましょう！
 sschk();
 
@@ -42,31 +42,21 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>チェック項目作成</title>
-<!-- <link rel="stylesheet" href="css/range.css"> -->
-<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-<link href="./css/all.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="css/range.css">
+<link href="css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <link href="./css/all.css" rel="stylesheet"> -->
 <style>div{padding: 10px;font-size:16px;}</style>
 </head>
 <body id="main">
 <!-- Head[Start] -->
 <header>
-<?= include("menu.php");?>
-  <!-- <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        さん、こんにちは！
-        <a class="navbar-brand" href="tmplt_index.php">チェック項目設定</a><var>
-        <a class="navbar-brand" href="member_select.php">所属メンバー一覧</a><var>
-        <a class="navbar-brand" href="logout.php">ログアウト</a></var>
-      </div>
-    </div>
-  </nav> -->
+  <?php include("menu.php");?>
 </header>
 <!-- Head[End] -->
 
 
 <!-- Main[Start] -->
-<div>
+<div class="main">
     <div class="container jumbotron">
 
       <table>

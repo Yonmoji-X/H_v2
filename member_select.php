@@ -45,13 +45,13 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
 <body id="main">
 <!-- Head[Start] -->
 <header>
-<?= include("menu.php");?>
+<?php include("menu.php");?>
 
 </header>
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
-<div>
+<div class="main">
     <div class="container jumbotron">
       <table>
         <tr>

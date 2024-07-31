@@ -54,36 +54,38 @@ $json_shr = json_encode($values_shr, JSON_UNESCAPED_UNICODE);
 
     <!-- Head[Start] -->
     <header>
-        <?= include("menu.php"); ?>
+    <?php include("menu.php"); ?>
     </header>
     <!-- Head[End] -->
 
     <!-- Main[Start] -->
-    <form id="registration-form" method="POST" action="shr_insert.php">
-        <div class="jumbotron">
-            <fieldset>
-                <legend>一般アカウント登録</legend>
-                <!-- 隠しフィールドにユーザーIDを追加 -->
-                <input type="hidden" name="auth_id" value="<?= $auth_id ?>">
-                <!-- 従業員アカウントID -->
-                <label>一般アカウントID：
-                    <input type="text" id="gene_id">
-                </label><br>
-                <!-- 隠しフィールドに従業員IDを追加 -->
-                <input type="hidden" name="gene_id" id="hidden_gene_id" value="">
-                <input type="submit" value="送信">
-            </fieldset>
-        </div>
-    </form>
-    <table id="table_body">
-        <thead>
-            <tr>
-                <th>名前</th>
-                <th>アカウントID</th>
-                <th>削除</th>
-            </tr>
-        <thead>
-    </table>
+    <div class="main">
+        <form id="registration-form" method="POST" action="shr_insert.php">
+            <div class="jumbotron">
+                <fieldset>
+                    <legend>一般アカウント登録</legend>
+                    <!-- 隠しフィールドにユーザーIDを追加 -->
+                    <input type="hidden" name="auth_id" value="<?= $auth_id ?>">
+                    <!-- 従業員アカウントID -->
+                    <label>一般アカウントID：
+                        <input type="text" id="gene_id">
+                    </label><br>
+                    <!-- 隠しフィールドに従業員IDを追加 -->
+                    <input type="hidden" name="gene_id" id="hidden_gene_id" value="">
+                    <input type="submit" value="送信">
+                </fieldset>
+            </div>
+        </form>
+        <table id="table_body">
+            <thead>
+                <tr>
+                    <th>名前</th>
+                    <th>アカウントID</th>
+                    <th>削除</th>
+                </tr>
+            <thead>
+        </table>
+    </div>
     <!-- Main[End] -->
 
     <!-- JSONデータをJavaScriptで利用 -->

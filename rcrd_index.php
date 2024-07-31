@@ -63,12 +63,12 @@ div{padding: 10px;font-size:16px;}
 <body id="main">
 <!-- Head[Start] -->
 <header>
-<?= include("menu.php");?>
+<?php include("menu.php");?>
 </header>
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
-<div>
+<div class="main">
 <form method="POST" action="rcrd_insert.php" enctype="multipart/form-data">
     <fieldset>
         <select name="admin_or_emp" id="id_admin_or_emp">

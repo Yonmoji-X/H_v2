@@ -37,7 +37,7 @@ if ($status == false) {
 
 <!-- Head[Start] -->
 <header>
-<?= include("menu.php");?>
+<?php include("menu.php");?>
   <!-- <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header"><a class="navbar-brand" href="tmplt_select.php">環境データ一覧</a></div>
@@ -47,63 +47,65 @@ if ($status == false) {
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
-<form method="POST" action="tmplt_update.php"> <!-- 更新用のPHPファイルを指定 -->
-    <div class="jumbotron">
-        <fieldset>
-            <legend>製造環境の管理</legend>
-            <table>
-                <tr>
-                    <th>項目</th>
-                    <th>設定</th>
-                </tr>
-                <tr>
-                    <td>1.項目名</td>
-                    <td><input name="title" value="<?= htmlspecialchars($row['title'], ENT_QUOTES, 'UTF-8') ?>"></td>
-                </tr>
-                <tr>
-                    <td>2.管理者/従業員</td>
-                    <td>
-                    <select name="admin_or_emp">
-                            <option value="1" <?= $row['admin_or_emp'] == 1 ? 'selected' : '' ?>>管理者</option>
-                            <option value="0" <?= $row['admin_or_emp'] == 0 ? 'selected' : '' ?>>従業員</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3.出勤/退勤</td>
-                    <td>
-                        <select name="work_in_or_out">
-                            <option value="1" <?= $row['work_in_or_out'] == 1 ? 'selected' : '' ?>>出勤時</option>
-                            <option value="0" <?= $row['work_in_or_out'] == 0 ? 'selected' : '' ?>>退勤時</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4. [チェック欄]の有無</td>
-                    <td><input type="checkbox" name="check_exist" <?= $row['check_exist'] == 1 ? 'checked' : '' ?>></td>
-                </tr>
-                <tr>
-                    <td>5. [テキスト記入欄]の有無</td>
-                    <td><input type="checkbox" name="text_exist" <?= $row['text_exist'] == 1 ? 'checked' : '' ?>></td>
-                </tr>
-                <tr>
-                    <td>6. [温度入力欄]の有無</td>
-                    <td><input type="checkbox" name="temp_exist" <?= $row['temp_exist'] == 1 ? 'checked' : '' ?>></td>
-                </tr>
-                <tr>
-                    <td>7. [写真投稿欄]の有無</td>
-                    <td><input type="checkbox" name="photo_exist" <?= $row['photo_exist'] == 1 ? 'checked' : '' ?>></td>
-                </tr>
-            </table>
-            <br>
+<div class="main">
+    <form method="POST" action="tmplt_update.php"> <!-- 更新用のPHPファイルを指定 -->
+        <div class="jumbotron">
+            <fieldset>
+                <legend>製造環境の管理</legend>
+                <table>
+                    <tr>
+                        <th>項目</th>
+                        <th>設定</th>
+                    </tr>
+                    <tr>
+                        <td>1.項目名</td>
+                        <td><input name="title" value="<?= htmlspecialchars($row['title'], ENT_QUOTES, 'UTF-8') ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>2.管理者/従業員</td>
+                        <td>
+                        <select name="admin_or_emp">
+                                <option value="1" <?= $row['admin_or_emp'] == 1 ? 'selected' : '' ?>>管理者</option>
+                                <option value="0" <?= $row['admin_or_emp'] == 0 ? 'selected' : '' ?>>従業員</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3.出勤/退勤</td>
+                        <td>
+                            <select name="work_in_or_out">
+                                <option value="1" <?= $row['work_in_or_out'] == 1 ? 'selected' : '' ?>>出勤時</option>
+                                <option value="0" <?= $row['work_in_or_out'] == 0 ? 'selected' : '' ?>>退勤時</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4. [チェック欄]の有無</td>
+                        <td><input type="checkbox" name="check_exist" <?= $row['check_exist'] == 1 ? 'checked' : '' ?>></td>
+                    </tr>
+                    <tr>
+                        <td>5. [テキスト記入欄]の有無</td>
+                        <td><input type="checkbox" name="text_exist" <?= $row['text_exist'] == 1 ? 'checked' : '' ?>></td>
+                    </tr>
+                    <tr>
+                        <td>6. [温度入力欄]の有無</td>
+                        <td><input type="checkbox" name="temp_exist" <?= $row['temp_exist'] == 1 ? 'checked' : '' ?>></td>
+                    </tr>
+                    <tr>
+                        <td>7. [写真投稿欄]の有無</td>
+                        <td><input type="checkbox" name="photo_exist" <?= $row['photo_exist'] == 1 ? 'checked' : '' ?>></td>
+                    </tr>
+                </table>
+                <br>
 
-            <input type="hidden" name="auth_id" value="<?= htmlspecialchars($auth_id, ENT_QUOTES, 'UTF-8') ?>">
+                <input type="hidden" name="auth_id" value="<?= htmlspecialchars($auth_id, ENT_QUOTES, 'UTF-8') ?>">
 
-            <input type="hidden" name="id" value="<?= htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8') ?>">
-            <input type="submit" value="更新">
-        </fieldset>
-    </div>
-</form>
+                <input type="hidden" name="id" value="<?= htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8') ?>">
+                <input type="submit" value="更新">
+            </fieldset>
+        </div>
+    </form>
+</div>
 <!-- Main[End] -->
 
 </body>

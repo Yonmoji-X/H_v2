@@ -82,12 +82,12 @@ $json_mmbr = json_encode($members, JSON_UNESCAPED_UNICODE);
 <body id="main">
     <!-- Head[Start] -->
     <header>
-        <?= include("menu.php"); ?>
+    <?php include("menu.php"); ?>
     </header>
     <!-- Head[End] -->
 
     <!-- Main[Start] -->
-    <div>
+    <div class="main">
         <form method="POST" action="rcrd_update.php" enctype="multipart/form-data">
             <fieldset>
                 <div id="items_container"></div>

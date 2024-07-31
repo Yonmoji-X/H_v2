@@ -32,7 +32,7 @@ if($status==false) {
 
 <!-- Head[Start] -->
 <header>
-<?= include("menu.php");?>
+<?php include("menu.php");?>
   <!-- <nav class="navbar navbar-default">
     <div class="container-fluid">
     <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
@@ -43,19 +43,21 @@ if($status==false) {
 
 
 <!-- Main[Start] -->
-<form method="POST" action="member_update.php">
-  <div class="jumbotron">
-   <fieldset>
-    <legend>[編集]</legend>
-     <label>名前：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
-     <label>Email：<input type="text" name="email" value="<?=$row["email"]?>"></label><br>
-     <label><textArea name="content" rows="4" cols="40"><?=$row["content"]?></textArea></label><br>
-     <input type="submit" value="送信">
-     <input type="hidden" name="id" value="<?=$id?>">
-    </fieldset>
-  </div>
-</form>
-<!-- Main[End] -->
+<div class="main">
+  <form method="POST" action="member_update.php">
+    <div class="jumbotron">
+     <fieldset>
+      <legend>[編集]</legend>
+       <label>名前：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
+       <label>Email：<input type="text" name="email" value="<?=$row["email"]?>"></label><br>
+       <label><textArea name="content" rows="4" cols="40"><?=$row["content"]?></textArea></label><br>
+       <input type="submit" value="送信">
+       <input type="hidden" name="id" value="<?=$id?>">
+      </fieldset>
+    </div>
+  </form>
+  <!-- Main[End] -->
+</div>
 
 
 </body>

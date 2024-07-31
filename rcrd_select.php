@@ -102,21 +102,22 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>チェック項目作成</title>
-<link href="./css/all.css" rel="stylesheet">
+<!-- <link href="./css/all.css" rel="stylesheet"> -->
 <style>
 div{padding: 10px;font-size:16px;}
 img.photo { width: 100px; height: 100px; object-fit: cover; }
 </style>
+
 </head>
 <body id="main">
 <!-- Head[Start] -->
 <header>
-    <?= include("menu.php");?>
+<?php include("menu.php");?>
 </header>
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
-<div>
+<div class="main">
     <div class="container jumbotron">絞り込み
         <select name="admin_or_emp" id="id_admin_or_emp">
             <option value="">管理者/従業員：全て</option>
