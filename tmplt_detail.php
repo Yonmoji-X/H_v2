@@ -30,7 +30,7 @@ if ($status == false) {
 <head>
   <meta charset="UTF-8">
   <title>チェック項目更新</title>
-  <link href="css/all.css" rel="stylesheet">
+  <!-- <link href="css/all.css" rel="stylesheet"> -->
   <style>div{padding: 10px;font-size:16px;}</style>
 </head>
 <body>
@@ -101,7 +101,7 @@ if ($status == false) {
                 <input type="hidden" name="auth_id" value="<?= htmlspecialchars($auth_id, ENT_QUOTES, 'UTF-8') ?>">
 
                 <input type="hidden" name="id" value="<?= htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8') ?>">
-                <input type="submit" value="更新">
+                <input type="submit" value="更新" class="subBtn">
             </fieldset>
         </div>
     </form>

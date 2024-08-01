@@ -55,9 +55,55 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>チェック項目作成</title>
-<link href="./css/all.css" rel="stylesheet">
+<!-- <link href="./css/all.css" rel="stylesheet"> -->
 <style>
 div{padding: 10px;font-size:16px;}
+
+/* .item_field {
+    border-bottom: solid 0.5px #ddd;
+    border: none;
+    border-radius: none;
+    background: white;
+    margin: 10px 0px;
+    width: 600px;
+} */
+
+.radioBtn {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+  }
+
+  .radioBtn_label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 18px;
+    border-radius: 50px;
+    transition: all .2s;
+    background: #eee;
+    /* border: solid 0.5px #ddd; */
+}
+
+.radioBtn:checked + .radioBtn_label {
+    /* background: black; */
+    /* background: #f56500; */
+    background: #63d4db;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0,0,0,.7);
+}
+
+.radioBtn_input:focus + .radioBtn_label {
+    outline-color: #4D90FE;
+    outline-offset: -2px;
+    outline-style: auto;
+    outline-width: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .item_field {
+    width: 400px;
+  }
+}
+
 </style>
 </head>
 <body id="main">
@@ -71,22 +117,23 @@ div{padding: 10px;font-size:16px;}
 <div class="main">
 <form method="POST" action="rcrd_insert.php" enctype="multipart/form-data">
   <div class="jumbotron">
+    <h3>チェック</h3>
     <fieldset>
         <select name="admin_or_emp" id="id_admin_or_emp">
-            <option value="1">管理者</option>
             <option value="0">従業員</option>
+            <option value="1">管理者</option>
         </select>
         <select name="work_in_or_out" id="id_work_in_or_out">
             <option value="1">出勤時</option>
             <option value="0">退勤時</option>
         </select>
-        <div id="items_container"></div>
-
         <select name="recorder">
           <?php foreach ($members as $member): ?>
             <option value="<?= h($member['m_id']) ?>"><?= h($member['m_name']) ?></option>
           <?php endforeach; ?>
         </select>
+        <div id="items_container"></div>
+
 
         <input type="hidden" name="auth_id" value="<?= h($auth_id) ?>">
         <input type="submit" value="完了" class="subBtn">
@@ -125,11 +172,18 @@ div{padding: 10px;font-size:16px;}
     filteredData.forEach((row, index) => {
       const itemField = document.createElement('div');
       itemField.classList.add('item_field');
-      itemField.style.border = 'solid 0.5px #ddd';
-      itemField.style.borderRadius = '10px';
+      itemField.style.borderBottom = 'solid 0.5px #ddd';
+      // itemField.style.border = 'solid 0.5px #ddd';
+      // itemField.style.borderRadius = '10px';
       itemField.style.background = 'white';
       itemField.style.margin = '10px 0px';
-      itemField.style.width = '600px';
+      itemField.style.width = '500px';
+//       itemField.style.@media screen and (max-width: 767px) {
+//   .item-field {
+//     width: 400px;
+//   }
+// }
+
 
       const titleBox = document.createElement('div');
       titleBox.id = 'title_box';
@@ -157,10 +211,17 @@ div{padding: 10px;font-size:16px;}
   yesButton.name = `check_item_${index}`;
   yesButton.value = 'YES';
   yesButton.id = `check_box_yes_${index}`;
+  yesButton.classList.add('radioBtn');
+  // yesButton.style.display = 'none';
+  // yesButton.style.clip = 'rect(1px, 1px, 1px, 1px)';
+  // yesButton.style.position = 'absolute !important';
 
   const yesLabel = document.createElement('label');
   yesLabel.htmlFor = `check_box_yes_${index}`;
   yesLabel.textContent = 'YES';
+  yesLabel.classList.add('radioBtn_label');
+  // yesLabel.style.background = 'skyblue';
+  // yesButton.style.position = 'absolute !important';
 
   // Noボタンとそのラベルを作成
   const noButton = document.createElement('input');
@@ -168,10 +229,12 @@ div{padding: 10px;font-size:16px;}
   noButton.name = `check_item_${index}`;
   noButton.value = 'NO';
   noButton.id = `check_box_no_${index}`;
+  noButton.classList.add('radioBtn');
 
   const noLabel = document.createElement('label');
   noLabel.htmlFor = `check_box_no_${index}`;
   noLabel.textContent = 'NO';
+  noLabel.classList.add('radioBtn_label');
 
   // ラジオボタンとラベルをcheckBoxに追加
   checkBox.appendChild(yesButton);

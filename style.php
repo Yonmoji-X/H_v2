@@ -6,10 +6,16 @@
         margin:0px;
         padding-top:200px
         padding:0px;
+        font-size:10.5px;
+    }
+
+    h3 {
+      padding:0px;
+      margin:0px;
     }
 
     .main {
-        margin-top:120px
+        margin-top:90px
     }
     table {
         font-family: 'Noto Serif JP', serif;
@@ -20,7 +26,8 @@
         padding: 14px;
         font-weight: normal;
         text-align: left;
-        border-bottom: 1px solid #646566;
+        border-bottom: 1px solid #ccc;
+        /* border-bottom: 1px solid #646566; */
     }
     td span {
         font-size: 90%;
@@ -75,6 +82,23 @@
       width: 600px;
     }
 
+    select {
+      font-family: 'Noto Serif JP', serif;
+      font-size:17px;
+      padding:4px 8px;
+      margin: 5px 5px;
+      border: solid 0.5px #ddd;
+      border-radius: 20px;
+    }
+
+    .input_date {
+      font-family: 'Noto Serif JP', serif;
+      font-size:17px;
+      padding:0.5px 8px;
+      margin: 5px 5px;
+      border: solid 0.5px #ddd;
+      border-radius: 20px;
+    }
     /* header */
 
 header {
@@ -83,9 +107,13 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 0;
+  padding: 15px 0;
   background: #eee;
+  /* background: #fff; */
   /* background:cadetblue; */
+  /* border-bottom: solid 0.5px #63d4db; */
+  /* box-shadow: 0 0 0.5px #63d4db,0 0 3px #63d4db; */
+  /* text-shadow: 0 0 1px #fff,0 0 7px #fff; */
 }
 header .inner {
   position: relative;
@@ -161,10 +189,10 @@ header .navi li a:hover {
   text-decoration: underline;
 }
 .button{
-  background: #005eed;
+  background: #007bff;
   color: #FFF;
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 50px;
 }
 
 @media screen and (max-width: 767px) {
@@ -311,7 +339,7 @@ body {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   background-color: #007bff;
   color: white;
   cursor: pointer;

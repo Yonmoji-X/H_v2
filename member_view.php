@@ -46,10 +46,24 @@ if($status==false) {
 <!-- Main[Start] -->
 <!-- <form method="POST" action="member_update.php"> -->
   <div class="main">
-    <legend>[詳細]</legend>
-     <p>名前：<?=$row["name"]?></p>
-     <p>メール：<?=$row["email"]?></p>
-     <p>情報：<?=$row["content"]?></p>
+    <div class="jumbotron">
+      <h3>従業員詳細</h3>
+      <table>
+        <tr>
+          <td>名前：</td>
+          <td><?=$row["name"]?></td>
+        </tr>
+        <tr>
+          <td>メール：</td>
+          <td><?=$row["email"]?></td>
+        </tr>
+        <tr>
+          <td>情報：</td>
+          <td><?=$row["content"]?></td>
+        </tr>
+      </table>
+    </div>
+    <!-- <legend>[詳細]</legend> -->
   </div>
 
 

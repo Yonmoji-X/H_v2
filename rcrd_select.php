@@ -142,7 +142,7 @@ img.photo { width: 100px; height: 100px; object-fit: cover; }
           <?php endforeach; ?>
         </select>
         <!-- <div> -->
-        <input type="date" id="date_picker" />
+        <input type="date" id="date_picker" class="input_date" />
         <!-- </div> -->
 
         <!-- <div style="background: white;">メモ
@@ -242,17 +242,18 @@ function displayData(filteredData) {
             <td>${v.template_title}</td>
             <td>${v.admin_or_emp == 1 ? "管理者" : "従業員"}</td>
             <td>${v.work_in_or_out == 1 ? "出勤時" : "退勤時"}</td>
-            <td>${v.check_item}</td>
-            <td>${v.text}</td>
-            <td>${v.temp}</td>
-            <td>${v.photo ? '<img class="photo" src="data:image/jpeg;base64,' + v.photo + '" alt="Photo">' : '無'}</td>
+            <td>${v.check_item == null ? "-" : v.check_item}</td>
+            <td>${v.text == null ? "-" : v.text}</td>
+            <td>${v.temp == null ? "-" : v.temp + "℃"}</td>
+            <td>${v.photo ? '<img class="photo" src="data:image/jpeg;base64,' + v.photo + '" alt="Photo">' : '-'}</td>
             <td>${v.template_name}</td>
             <?php if($_SESSION["kanri_flg"] == "1"){ ?>
-            <td><a href="rcrd_delete.php?id=${v.id}">削除</a></td>
+            <td><a href="rcrd_delete.php?id=${v.id}" onclick="return confirmDelete();">削除</a></td>
             <td><a href="rcrd_detail.php?id=${v.id}">編集</a></td>
             <?php } ?>
         `;
-        tableBody.appendChild(tr);
+        tableBody.prepend(tr);
+        // tableBody.appendChild(tr);
     });
 }
 
@@ -265,6 +266,9 @@ document.getElementById('date_picker').addEventListener('change', filterData);
 
 // ページ読み込み時にフィルタリングを実行
 window.onload = filterData;
+function confirmDelete() {
+    return confirm("本当に削除してもよろしいですか？");
+  }
 </script>
 </body>
 </html>

@@ -58,7 +58,7 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
 <!-- Main[Start] -->
 <div class="main">
     <div class="container jumbotron">
-
+    <!-- <h3>チェック項目一覧</h3> -->
       <table>
         <tr>
           <th nowrap>ID</th>
@@ -81,13 +81,13 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
           <td><?= htmlspecialchars($v["title"], ENT_QUOTES, 'UTF-8') ?></td>
           <td><?= $v["admin_or_emp"] == 1 ? "管理者" : "従業員" ?></td>
           <td><?= $v["work_in_or_out"] == 1 ? "出勤時" : "退勤時" ?></td>
-          <td><?= $v["check_exist"] == 1 ? "有" : "無" ?></td>
-          <td><?= $v["text_exist"] == 1 ? "有" : "無" ?></td>
-          <td><?= $v["temp_exist"] == 1 ? "有" : "無" ?></td>
-          <td><?= $v["photo_exist	"] == 1 ? "有" : "無" ?></td>
+          <td><?= $v["check_exist"] == 1 ? "有" : "-" ?></td>
+          <td><?= $v["text_exist"] == 1 ? "有" : "-" ?></td>
+          <td><?= $v["temp_exist"] == 1 ? "有" : "-" ?></td>
+          <td><?= $v["photo_exist"] == 1 ? "有" : "-" ?></td>
 
           <?php if($_SESSION["kanri_flg"] == "1"){ ?>
-          <td><a href="tmplt_delete.php?id=<?= htmlspecialchars($v["id"], ENT_QUOTES, 'UTF-8') ?>">削除</a></td>
+          <td><a href="tmplt_delete.php?id=<?= htmlspecialchars($v["id"], ENT_QUOTES, 'UTF-8') ?>" onclick="return confirmDelete();">削除</a></td>
           <td><a href="tmplt_detail.php?id=<?= htmlspecialchars($v["id"], ENT_QUOTES, 'UTF-8') ?>">編集</a></td>
           <?php } ?>
         </tr>
@@ -100,6 +100,9 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
 
 
 <script>
+      function confirmDelete() {
+    return confirm("本当に削除してもよろしいですか？");
+  }
   // JSON データをデバッグしてみる
   const jsonString = '<?= $json ?>';
   console.log(jsonString); // ここで JSON の構造を確認します

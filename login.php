@@ -22,21 +22,23 @@
 
 <!-- lLOGINogin_act.php は認証処理用のPHPです。 -->
 <div class="main">
-  <fieldset>
-    <form name="form1" action="login_act.php" method="post">
-      <table>
-        <tr>
-          <td>ID:</td>
-          <td><input type="text" name="lid"></td>
-        </tr>
-        <tr>
-          <td>PW:</td>
-          <td><input type="password" name="lpw"></td>
-        </tr>
-      </table>
-      <input type="submit" value="ログイン" class="subBtn">
-    </form>
-  </fieldset>
+  <div class="jumbotron">
+    <fieldset>ログイン
+      <form name="form1" action="login_act.php" method="post">
+        <table>
+          <tr>
+            <td>ID:</td>
+            <td><input type="text" name="lid"></td>
+          </tr>
+          <tr>
+            <td>PW:</td>
+            <td><input type="password" name="lpw"></td>
+          </tr>
+        </table>
+        <input type="submit" value="ログイン" class="subBtn">
+      </form>
+    </fieldset>
+  </div>
 </div>
 
 

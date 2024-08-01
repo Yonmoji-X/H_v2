@@ -67,7 +67,7 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
           <td><a href="member_view.php?id=<?= h($v["id"]) ?>"><?= h($v["name"]) ?></a></td>
           <?php if ($_SESSION["kanri_flg"] == "1") { ?>
           <td>
-            <a href="member_delete.php?id=<?= h($v["id"]) ?>">[削除]</a>
+          <a href="member_delete.php?id=<?= h($v["id"]) ?>" onclick="return confirmDelete();">[削除]</a>
             <a href="member_detail.php?id=<?= h($v["id"]) ?>">[編集]</a>
           </td>
           <?php } ?>
@@ -79,6 +79,9 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
 <!-- Main[End] -->
 
 <script>
+    function confirmDelete() {
+    return confirm("本当に削除してもよろしいですか？");
+  }
   // JSONデータを正しくエスケープする
   const json = `<?= json_encode($values, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_HEX_APOS) ?>`;
   console.log(JSON.parse(json));

@@ -76,7 +76,7 @@ $json_shr = json_encode($values_shr, JSON_UNESCAPED_UNICODE);
 
                     <!-- 隠しフィールドに従業員IDを追加 -->
                     <input type="hidden" name="gene_id" id="hidden_gene_id" value="">
-                    <input type="submit" value="送信" class="subBtn">
+                    <input type="submit" value="登録" class="subBtn">
                 </fieldset>
             </div>
         </form>
@@ -109,7 +109,7 @@ $json_shr = json_encode($values_shr, JSON_UNESCAPED_UNICODE);
                 tr.innerHTML = `
                 <td>${matchedRecord_user.name}</td>
                 <td>${matchedRecord_user.lid}</td>
-                <td><a href="shr_delete.php?id=${v.id}">削除</a></td>
+                <td><a href="shr_delete.php?id=${v.id}" onclick="return confirmDelete();">削除</a></td>
                 `;
                 tableBody.appendChild(tr);
             }
@@ -197,6 +197,9 @@ $json_shr = json_encode($values_shr, JSON_UNESCAPED_UNICODE);
             })
             .catch(error => console.error('Error:', error));
         });
+        function confirmDelete() {
+            return confirm("本当に削除してもよろしいですか？");
+        }
     </script>
 
 </body>
