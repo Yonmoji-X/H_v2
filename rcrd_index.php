@@ -54,7 +54,7 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>チェック項目作成</title>
+<title>H_</title>
 <!-- <link href="./css/all.css" rel="stylesheet"> -->
 <style>
 div{padding: 10px;font-size:16px;}
@@ -273,8 +273,14 @@ div{padding: 10px;font-size:16px;}
         const tempInput = document.createElement('input');
         tempInput.type = 'number';
         tempInput.name = `temp_${index}`;
+        const tempLabel = document.createElement('label');
+        tempLabel.htmlFor = `temp_${index}`;
+        tempLabel.textContent = ' ℃';
+        tempInput.style.width = '50px';
+        tempInput.style.height = '20px';
         tempBox.appendChild(tempInput);
         itemField.appendChild(tempBox);
+        tempBox.appendChild(tempLabel);
       }
 
       container.appendChild(itemField);

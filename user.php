@@ -12,21 +12,23 @@ include "funcs.php";
   <meta charset="UTF-8">
   <title>USERデータ登録</title>
   <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-  <style>div{padding: 10px;font-size:16px;}</style>
+  <style>
+    div{padding: 10px;font-size:16px;}
+  </style>
 </head>
 <body>
 
 <!-- Head[Start] -->
 <header>
-<?php include("style.php");?>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      <a class="button" href="login.php">ログイン</a><var>
+  <?php include("style.php");?>
+      <div class="inner">
+        <p>H_</p>
+        <ul class="navi">
+          <li><a class="button" href="login.php">ログイン</a><var></li>
+        </ul>
       </div>
-    </div>
-  </nav>
 </header>
+
 <!-- Head[End] -->
 
 <!-- Main[Start] -->

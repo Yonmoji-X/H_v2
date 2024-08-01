@@ -36,10 +36,10 @@
             <?php } ?>
             <li>
                 <?php if($_SESSION["kanri_flg"] == "0"){ ?>
-                    <label>一般アカウント：</label>
+                    <label>一般アカウント：</label><br>
                 <?php } ?>
                 <?php if($_SESSION["kanri_flg"] == "1"){ ?>
-                    <label>管理アカウント：</label>
+                    <label>管理アカウント：</label><br>
                 <?php } ?>
                 <?= htmlspecialchars($_SESSION["name"], ENT_QUOTES, 'UTF-8') ?>
             </li>

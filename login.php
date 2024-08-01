@@ -12,12 +12,12 @@
 
 <header>
 <?php include("style.php");?>
-  <div class="container-fluid">
-      <div class="navbar-header">
-      <a class="navbar-brand" href="user.php">ユーザー登録</a><var>
-      </div>
-    </div>
-  </nav>
+  <div class="inner">
+    <p>H_</p>
+    <ul class="navi">
+      <li><a class="navbar-brand" href="user.php">ユーザー登録</a><var></li>
+    </ul>
+  </div>
 </header>
 
 <!-- lLOGINogin_act.php は認証処理用のPHPです。 -->

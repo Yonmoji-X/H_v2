@@ -7,6 +7,9 @@
         padding-top:200px
         padding:0px;
         font-size:10.5px;
+        background: -webkit-linear-gradient(130deg, rgb(22, 192, 237,5%), rgb(150, 131, 206,5%));
+        background: linear-gradient(130deg, rgb(22, 192, 237,5%), rgb(150, 131, 206,5%));
+        color: #333;
     }
 
     h3 {
@@ -28,6 +31,7 @@
         text-align: left;
         border-bottom: 1px solid #ccc;
         /* border-bottom: 1px solid #646566; */
+        /* word-break : break-all; */
     }
     td span {
         font-size: 90%;
@@ -109,12 +113,28 @@ header {
   width: 100%;
   padding: 15px 0;
   background: #eee;
+  /* height:64px; */
+  background: -webkit-linear-gradient(130deg, rgb(22, 192, 237,70%), rgb(150, 131, 206,70%));
+ background: linear-gradient(130deg, rgb(22, 192, 237,70%), rgb(150, 131, 206,70%));
+
+ /* background: linear-gradient(
+      to right,
+      rgba(246, 79, 89, 0.6),
+      rgba(196, 113, 237, 0.6),
+      rgba(18, 194, 233, 0.6)
+    ); */
+
   /* background: #fff; */
   /* background:cadetblue; */
   /* border-bottom: solid 0.5px #63d4db; */
   /* box-shadow: 0 0 0.5px #63d4db,0 0 3px #63d4db; */
   /* text-shadow: 0 0 1px #fff,0 0 7px #fff; */
 }
+
+.navbar-brand {
+  color: #333;
+}
+
 header .inner {
   position: relative;
   padding: 0 20px;
@@ -216,6 +236,7 @@ header .navi li a:hover {
   width: 16px;
   height: 25px;
   transition: all 0.4s;
+  /* color: white; */
   color: #464646;
   border: none;
   outline: none;

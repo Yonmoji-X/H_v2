@@ -81,10 +81,11 @@ $json = json_encode($values, JSON_UNESCAPED_UNICODE);
           <td><?= htmlspecialchars($v["title"], ENT_QUOTES, 'UTF-8') ?></td>
           <td><?= $v["admin_or_emp"] == 1 ? "管理者" : "従業員" ?></td>
           <td><?= $v["work_in_or_out"] == 1 ? "出勤時" : "退勤時" ?></td>
-          <td><?= $v["check_exist"] == 1 ? "有" : "-" ?></td>
-          <td><?= $v["text_exist"] == 1 ? "有" : "-" ?></td>
-          <td><?= $v["temp_exist"] == 1 ? "有" : "-" ?></td>
-          <td><?= $v["photo_exist"] == 1 ? "有" : "-" ?></td>
+          <td><?= $v["check_exist"] == 1 ? "✔︎" : "-" ?></td>
+          <td><?= $v["text_exist"] == 1 ? "✔︎" : "-" ?></td>
+          <td><?= $v["temp_exist"] == 1 ? "✔︎" : "-" ?></td>
+          <td><?= $v["photo_exist"] == 1 ? "✔︎" : "-" ?></td>
+
 
           <?php if($_SESSION["kanri_flg"] == "1"){ ?>
           <td><a href="tmplt_delete.php?id=<?= htmlspecialchars($v["id"], ENT_QUOTES, 'UTF-8') ?>" onclick="return confirmDelete();">削除</a></td>
