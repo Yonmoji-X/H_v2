@@ -50,8 +50,30 @@
         width: 100%;
     }
 
+    .jumbotron {
+      text-align: center;
+    }
 
+    fieldset {
+      /* display: block; */
+      display: inline-block;
+      margin: auto;
+      border-radius:20px;
+      border: 1px solid #ddd;
+      padding: 20px 70px;
+      margin: 0;
+      width: fit-content;
+      /* 内部のコンテンツに合わせて幅を調整 */
+    }
 
+    /* これはCSSかかってない。rcrd_index.phpのcss参照 */
+    .item_field {
+      border: solid 0.5 #ddd;
+      border-radius: 10px;
+      background: white;
+      margin: 10px 0px;
+      width: 600px;
+    }
 
     /* header */
 
@@ -282,6 +304,22 @@ body {
 /* a{
   color: #333;
 } */
+.subBtn {
+  display: block;
+  margin: auto;
+
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.subBtn:hover {
+  background-color: #0056b3;
+}
 
     /* <!-- -------<スタイルCSS>------- --> */
 </style>

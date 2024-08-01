@@ -114,7 +114,7 @@
                     </table>
                     <br>
                     <input type="hidden" name="auth_id" value="<?= h($auth_id) ?>">
-                    <input type="submit" value="登録">
+                    <input type="submit" value="登録" class="subBtn">
                 </fieldset>
             </div>
         </form>

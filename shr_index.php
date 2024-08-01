@@ -66,13 +66,17 @@ $json_shr = json_encode($values_shr, JSON_UNESCAPED_UNICODE);
                     <legend>一般アカウント登録</legend>
                     <!-- 隠しフィールドにユーザーIDを追加 -->
                     <input type="hidden" name="auth_id" value="<?= $auth_id ?>">
+                    <table>
+                        <tr>
+                            <td>一般アカウントID：</td>
+                            <td><input type="text" id="gene_id"></td>
+                        </tr>
+                    </table>
                     <!-- 従業員アカウントID -->
-                    <label>一般アカウントID：
-                        <input type="text" id="gene_id">
-                    </label><br>
+
                     <!-- 隠しフィールドに従業員IDを追加 -->
                     <input type="hidden" name="gene_id" id="hidden_gene_id" value="">
-                    <input type="submit" value="送信">
+                    <input type="submit" value="送信" class="subBtn">
                 </fieldset>
             </div>
         </form>

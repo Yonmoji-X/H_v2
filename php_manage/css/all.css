@@ -55,6 +55,7 @@ a::after {
     background-color: #FFA000;
     transition: .3s;
     transform: translateX(-50%);
+    color:azure
 }
 a:hover::after {
     width: 100%;

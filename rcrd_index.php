@@ -70,6 +70,7 @@ div{padding: 10px;font-size:16px;}
 <!-- Main[Start] -->
 <div class="main">
 <form method="POST" action="rcrd_insert.php" enctype="multipart/form-data">
+  <div class="jumbotron">
     <fieldset>
         <select name="admin_or_emp" id="id_admin_or_emp">
             <option value="1">管理者</option>
@@ -88,8 +89,9 @@ div{padding: 10px;font-size:16px;}
         </select>
 
         <input type="hidden" name="auth_id" value="<?= h($auth_id) ?>">
-        <input type="submit" value="完了">
+        <input type="submit" value="完了" class="subBtn">
     </fieldset>
+  </div>
 </form>
 </div>
 <!-- Main[End] -->
@@ -123,7 +125,11 @@ div{padding: 10px;font-size:16px;}
     filteredData.forEach((row, index) => {
       const itemField = document.createElement('div');
       itemField.classList.add('item_field');
-      itemField.style.border = 'solid 0.5px black';
+      itemField.style.border = 'solid 0.5px #ddd';
+      itemField.style.borderRadius = '10px';
+      itemField.style.background = 'white';
+      itemField.style.margin = '10px 0px';
+      itemField.style.width = '600px';
 
       const titleBox = document.createElement('div');
       titleBox.id = 'title_box';

@@ -18,10 +18,11 @@ include "funcs.php";
 
 <!-- Head[Start] -->
 <header>
+<?php include("style.php");?>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-      <a class="navbar-brand" href="login.php">ログイン</a><var>
+      <a class="button" href="login.php">ログイン</a><var>
       </div>
     </div>
   </nav>
@@ -33,17 +34,30 @@ include "funcs.php";
   <form method="post" action="user_insert.php">
     <div class="jumbotron">
      <fieldset>
-      <legend>ユーザー登録</legend>
-       <label>名前：<input type="text" name="name"></label><br>
-       <label>Login ID：<input type="text" name="lid"></label><br>
-       <label>Login PW<input type="text" name="lpw"></label><br>
-       <label>管理FLG：
-        一般<input type="radio" name="kanri_flg" value="0">
+      <table>
+        <tr>
+          <td>名前：</td>
+          <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+          <td>Login ID：</td>
+          <td><input type="text" name="lid"></td>
+        </tr>
+        <tr>
+          <td>Login PW：</td>
+          <td><input type="text" name="lpw"></td>
+        </tr>
+        <tr>
+          <td>管理FLG：</td>
+          <td>
+          一般<input type="radio" name="kanri_flg" value="0">
         管理者<input type="radio" name="kanri_flg" value="1">
-      </label>
-      <br>
-       <!-- <label>退会FLG：<input type="text" name="life_flg"></label><br> -->
-       <input type="submit" value="送信">
+          </td>
+        </tr>
+      </table>
+      <legend>ユーザー登録</legend>
+
+       <input type="submit" value="登録" class="subBtn">
       </fieldset>
     </div>
   </form>

@@ -36,13 +36,34 @@ sschk();
                 <div class="jumbotron">
                     <fieldset>
                         <legend>従業員登録</legend>
-                        <!-- 隠しフィールドにユーザーIDを追加 -->
                         <input type="hidden" name="auth_id" value="<?= $auth_id ?>">
-                        <label>名前：<input type="text" name="name"></label><br>
-                        <label>Email：<input type="text" name="email"></label><br>
-                        <!-- <label>年齢：<input type="text" name="age"></label><br> -->
-                        <label><textArea name="content" rows="4" cols="40"></textArea></label><br>
-                        <input type="submit" value="送信">
+                        <table>
+                            <tr>
+                                <td>
+                                    名前:
+                                </td>
+                                <td>
+                                    <input type="text" name="name">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Email：
+                                </td>
+                                <td>
+                                    <input type="text" name="email">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    備考
+                                </td>
+                                <td>
+                                    <textArea name="content" rows="4" cols="40"></textArea>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="submit" value="送信" class="subBtn">
                     </fieldset>
                 </div>
             </form>
@@ -51,3 +72,4 @@ sschk();
 
     </body>
 </html>
+
